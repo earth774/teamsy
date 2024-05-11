@@ -39,8 +39,9 @@
                         {{ config('app.name') }}
                     </h1>
 
-                    {{App\Models\User::count()}}
+                    {{-- {{App\Models\User::count()}} --}}
                     {{-- {{App\Models\User::where('tenant_id',1)->get()}} --}}
+                    <livewire:department-form />
 
                     <ul class="list-reset">
                         <li class="inline px-4">

@@ -1,0 +1,13 @@
+<?php
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+
+use Faker\Generator as Faker;
+use App\Models\Tenant;
+use {{ namespacedModel }};
+
+$factory->define({{ model }}::class, function (Faker $faker) {
+    return [
+        'tenant_id' => Tenant::factory()->create(),
+    ];
+});
