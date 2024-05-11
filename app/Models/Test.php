@@ -1,15 +1,14 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Models;
 
 use App\Scopes\TenantScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\BelongsToTenant;
 
-class {{ class }} extends Model
+class Test extends Model
 {
-    use HasFactory,BelongsToTenant;
+    use HasFactory;
 
     protected static function booted()
     {

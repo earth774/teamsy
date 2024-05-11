@@ -1,17 +1,14 @@
 <?php
 
-namespace {{ namespace }};
 
+namespace App\Traits;
+
+use App\Models\Tenant;
 use App\Scopes\TenantScope;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use App\Traits\BelongsToTenant;
 
-class {{ class }} extends Model
+trait BelongsToTenant
 {
-    use HasFactory,BelongsToTenant;
-
-    protected static function booted()
+    protected static function bootBelongsToTenant()
     {
         static::addGlobalScope(new TenantScope);
 
@@ -20,5 +17,10 @@ class {{ class }} extends Model
                 $model->tenant_id = session()->get('tenant_id');
             }
         });
+    }
+
+    public function tenant()
+    {
+        return $this->belongsTo(Tenant::class);
     }
 }
