@@ -1,13 +1,22 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\Models\Phone;
-use App\Models\Tenant;
-use Faker\Generator as Faker;
+use App\Models\Login;
 
-$factory->define(Phone::class, function (Faker $faker) {
-    return [
-        'tenant_id' => Tenant::factory()->create(),
-    ];
-});
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class PhoneFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'tenant_id' => \App\Models\Tenant::factory()->create(),
+        ];
+    }
+}
